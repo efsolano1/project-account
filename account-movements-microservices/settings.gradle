@@ -8,3 +8,16 @@ findProject(':model').projectDir = file('./domain/model');
 
 include(':usecase');
 findProject(':usecase').projectDir = file('./application/usecase');
+
+include(':mysql');
+findProject(':mysql').projectDir = file('./infrastructure/handler-adapters/mysql');
+
+include(':rest');
+findProject(':rest').projectDir = file('./infrastructure/entry-points/rest');
+
+
+include(':rabbitmq-send-receive-information');
+findProject(':rabbitmq-send-receive-information').projectDir = file('./infrastructure/handler-adapters/rabbitmq-send-receive-information');
+
+include(':custom-exceptions')
+findProject(':custom-exceptions').projectDir = file('./utils/custom-exceptions');
