@@ -1,0 +1,22 @@
+rootProject.name = 'customer-person-microservices'
+
+include ':app-customer-person'
+findProject(':app-customer-person').projectDir = file('./application/app-customer-person');
+
+include(':model');
+findProject(':model').projectDir = file('./domain/model');
+
+include(':usecase');
+findProject(':usecase').projectDir = file('./application/usecase');
+
+include(':mysql');
+findProject(':mysql').projectDir = file('./infrastructure/handler-adapters/mysql');
+
+include(':rest');
+findProject(':rest').projectDir = file('./infrastructure/entry-points/rest');
+
+include(':custom-exceptions')
+findProject(':custom-exceptions').projectDir = file('./utils/custom-exceptions');
+
+include(':rabbitmq-listener-information');
+findProject(':rabbitmq-listener-information').projectDir = file('./infrastructure/entry-points/rabbitmq-listener-information');

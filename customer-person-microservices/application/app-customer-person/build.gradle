@@ -1,0 +1,12 @@
+group = 'ec.com.efsr'
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    implementation project(':usecase')
+    implementation project(':mysql')
+    implementation project(':rest')
+    implementation project(':rabbitmq-listener-information')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+}
