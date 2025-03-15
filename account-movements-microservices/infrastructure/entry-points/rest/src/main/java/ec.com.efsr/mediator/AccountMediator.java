@@ -6,6 +6,7 @@ import ec.com.efsr.mapper.AccountMapper;
 import ec.com.efsr.usecases.account.IFindAccountByIdInteractor;
 import ec.com.efsr.usecases.account.IFindAllAccountsInteractor;
 import ec.com.efsr.usecases.account.ISaveAccountInteractor;
+import ec.com.efsr.usecases.account.IUpdateAccountInteractor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,11 +17,13 @@ public class AccountMediator {
     private final IFindAccountByIdInteractor findAccountByIdInteractor;
     private final IFindAllAccountsInteractor findAllAccountsInteractor;
     private final ISaveAccountInteractor saveAccountInteractor;
+    private final IUpdateAccountInteractor updateAccountInteractor;;
 
-    public AccountMediator(IFindAccountByIdInteractor findAccountByIdInteractor, IFindAllAccountsInteractor findAllAccountsInteractor, ISaveAccountInteractor saveAccountInteractor) {
+    public AccountMediator(IFindAccountByIdInteractor findAccountByIdInteractor, IFindAllAccountsInteractor findAllAccountsInteractor, ISaveAccountInteractor saveAccountInteractor, IUpdateAccountInteractor updateAccountInteractor) {
         this.findAccountByIdInteractor = findAccountByIdInteractor;
         this.findAllAccountsInteractor = findAllAccountsInteractor;
         this.saveAccountInteractor = saveAccountInteractor;
+        this.updateAccountInteractor = updateAccountInteractor;
     }
 
     public AccountOutDto findAccountById(String id) {
@@ -36,6 +39,10 @@ public class AccountMediator {
 
     public AccountOutDto saveAccount(AccountInDto accountInDto) {
         return AccountMapper.accountToAccountOutDTO(saveAccountInteractor.saveAccount(AccountMapper.accountInDtoToAccount(accountInDto)));
+    }
+
+    public AccountOutDto updateAccount(AccountInDto accountInDto) {
+        return AccountMapper.accountToAccountOutDTO(updateAccountInteractor.updateAccount(AccountMapper.accountInDtoToAccount(accountInDto), true));
     }
 
 }

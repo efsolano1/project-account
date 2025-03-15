@@ -1,5 +1,6 @@
 package ec.com.efsr.usecases.account.impl;
 
+import ec.com.efsr.exceptions.AccountNumberNotFoundException;
 import ec.com.efsr.models.Account;
 import ec.com.efsr.repository.AccountRepositoryPort;
 import ec.com.efsr.usecases.account.IFindAccountByAccountNumberInteractor;
@@ -13,9 +14,9 @@ public class FindAccountByAccountNumberInteractor implements IFindAccountByAccou
 
     @Override
     public Account findAccountByAccountNumber(String accountNumber) {
-        Account account = accountRepository.findAccountByAccountNumber(accountNumber).orElse(null);
+        Account account = accountRepository.findAccountByAccountNumber(accountNumber);
         if(account == null){
-            throw new RuntimeException("Cuenta con numero " + accountNumber + " no encontrada");
+            throw new AccountNumberNotFoundException("Cuenta con numero " + accountNumber + " no encontrada");
         }
         return account;
     }

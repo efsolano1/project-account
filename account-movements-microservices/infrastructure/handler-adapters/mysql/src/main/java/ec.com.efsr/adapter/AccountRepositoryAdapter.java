@@ -2,6 +2,8 @@ package ec.com.efsr.adapter;
 
 import ec.com.efsr.entities.AccountEntity;
 import ec.com.efsr.exceptions.AccountNotFoundException;
+import ec.com.efsr.exceptions.AccountNotSaveException;
+import ec.com.efsr.exceptions.AccountNotUpdateException;
 import ec.com.efsr.mappers.AccountMapper;
 import ec.com.efsr.models.Account;
 import ec.com.efsr.repository.AccountRepositoryPort;
@@ -41,15 +43,24 @@ public class AccountRepositoryAdapter  implements AccountRepositoryPort {
     }
 
     @Override
-    public Optional<Account> findAccountByAccountNumber(String accountNumber) {
-        return Optional.of(AccountMapper.accountEntityToModel(accountJpaRepository.findByAccountNumber(accountNumber)));
+    public Account findAccountByAccountNumber(String accountNumber) {
+        return AccountMapper.accountEntityToModel(accountJpaRepository.findByAccountNumber(accountNumber));
     }
 
     @Override
     public Optional<Account> saveAccount(Account account) {
         AccountEntity accountEntity = accountJpaRepository.save(AccountMapper.accountToAccountEntity(account));
         if(accountEntity == null){
-            throw new RuntimeException("Error al guardar la cuenta.");
+            throw new AccountNotSaveException("Error al guardar la cuenta.");
+        }
+        return Optional.of(AccountMapper.accountEntityToModel(accountEntity));
+    }
+
+    @Override
+    public Optional<Account> updateAccount(Account account) {
+        AccountEntity accountEntity = accountJpaRepository.save(AccountMapper.accountToAccountEntity(account));
+        if(accountEntity == null){
+            throw new AccountNotUpdateException("Error al actualizar la cuenta.");
         }
         return Optional.of(AccountMapper.accountEntityToModel(accountEntity));
     }

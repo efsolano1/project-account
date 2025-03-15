@@ -23,7 +23,7 @@ public class InformationListener implements IInformationListener {
     public String receiveInformation(String information) {
         try{
             Customer customer = findCustomerByIdInteractor.findCustomerById(information);
-            return customer.getIdCustomer()+"-"+customer.getName();
+            return customer.getIdCustomer()+","+customer.getName();
         }catch(Exception e){
             System.out.println("Error en consulta del cliente "+e.getMessage());
             return "";

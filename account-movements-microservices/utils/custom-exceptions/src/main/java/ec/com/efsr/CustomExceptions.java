@@ -1,7 +1,6 @@
 package ec.com.efsr;
 
-import ec.com.efsr.exceptions.AccountNotFoundException;
-import ec.com.efsr.exceptions.AccountsNotFoundException;
+import ec.com.efsr.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -14,6 +13,42 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class CustomExceptions {
+
+    @ExceptionHandler(AccountNotUpdateException.class)
+    public ResponseEntity<Map<String, String>> accountNotUpdateExceptionHandler(AccountNotUpdateException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(CustomerNotFoundException.class)
+    public ResponseEntity<Map<String, String>> customerNotFoundExceptionHandler(CustomerNotFoundException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(AccountNotSaveException.class)
+    public ResponseEntity<Map<String, String>> accountNotSaveExceptionHandler(AccountNotSaveException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(AccountNumberExistException.class)
+    public ResponseEntity<Map<String, String>> accountNumberExistExceptionHandler(AccountNumberExistException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(AccountNumberNotFoundException.class)
+    public ResponseEntity<Map<String, String>> accountNumberNotFoundExceptionHandler(AccountNumberNotFoundException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(AccountsNotFoundException.class)
     public ResponseEntity<Map<String, String>> accountsNotFoundExceptionHandler(AccountsNotFoundException ex) {
         Map<String, String> response = new HashMap<>();
@@ -46,6 +81,6 @@ public class CustomExceptions {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> generalExceptionsHandler(Exception ex) {
-        return new ResponseEntity<>("Error interno del servidor prueba", HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>("Error interno del servidor ", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

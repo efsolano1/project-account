@@ -33,11 +33,19 @@ public class AccountRestController {
                 ResponseEntity.status(204).build():
                 ResponseEntity.status(200).body(response) ;
     }
+
     @PostMapping
     public ResponseEntity<AccountOutDto> createAccount(@RequestBody @Valid AccountInDto accountInDto) {
         var response = accountMediator.saveAccount(accountInDto);
         return response != null ?
                 ResponseEntity.status(201).body(response) :
+                ResponseEntity.status(500).build();
+    }
+    @PutMapping
+    public ResponseEntity<AccountOutDto> updateAccount(@RequestBody @Valid AccountInDto accountInDto){
+        var response = accountMediator.updateAccount(accountInDto);
+        return response != null?
+                ResponseEntity.status(200).body(response):
                 ResponseEntity.status(500).build();
     }
 }

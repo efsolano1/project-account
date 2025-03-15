@@ -6,6 +6,9 @@ import ec.com.efsr.models.Account;
 
 public class AccountMapper {
     public static AccountOutDto accountToAccountOutDTO(Account account) {
+        if (account == null) {
+            return null;
+        }
         AccountOutDto accountOutDto = new AccountOutDto();
         accountOutDto.setIdAccount(account.getIdAccount());
         accountOutDto.setAccountNumber(account.getAccountNumber());
@@ -15,7 +18,11 @@ public class AccountMapper {
         accountOutDto.setIdCustomer(account.getIdCustomer());
         return accountOutDto;
     }
+
     public static Account accountInDtoToAccount(AccountInDto accountInDto) {
+        if (accountInDto == null) {
+            return null;
+        }
         Account account = new Account();
         account.setIdAccount(accountInDto.getIdAccount());
         account.setAccountNumber(accountInDto.getAccountNumber());

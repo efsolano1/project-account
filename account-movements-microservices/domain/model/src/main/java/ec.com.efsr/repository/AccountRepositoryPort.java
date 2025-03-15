@@ -8,7 +8,8 @@ import java.util.Optional;
 public interface AccountRepositoryPort {
     Optional<Account> findAccountById(String id);
     List<Account> findAllAccounts();
-    Optional<Account> findAccountByAccountNumber(String accountNumber);
+    Account findAccountByAccountNumber(String accountNumber);
     Optional<Account> saveAccount(Account account);
+    Optional<Account> updateAccount(Account account);
 
 }

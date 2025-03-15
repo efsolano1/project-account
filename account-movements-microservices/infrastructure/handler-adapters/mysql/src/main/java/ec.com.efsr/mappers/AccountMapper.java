@@ -5,6 +5,9 @@ import ec.com.efsr.models.Account;
 
 public class AccountMapper {
     public static Account accountEntityToModel(AccountEntity accountEntity) {
+        if(accountEntity == null){
+            return null;
+        }
         Account account = new Account();
          account.setIdAccount(accountEntity.getIdAccount());
          account.setAccountNumber(accountEntity.getAccountNumber());
@@ -16,6 +19,9 @@ public class AccountMapper {
     }
 
     public static AccountEntity accountToAccountEntity(Account account){
+        if(account == null){
+            return null;
+        }
         AccountEntity accountEntity = new AccountEntity();
         accountEntity.setIdAccount(account.getIdAccount());
         accountEntity.setAccountNumber(account.getAccountNumber());
