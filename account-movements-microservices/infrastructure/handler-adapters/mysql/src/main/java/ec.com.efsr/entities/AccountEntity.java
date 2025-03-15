@@ -23,7 +23,7 @@ public class AccountEntity {
     private BigDecimal openingBalance;
     private String state;
     private String idCustomer;
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<MovementEntity> movements;
 
     public AccountEntity(String idAccount) {

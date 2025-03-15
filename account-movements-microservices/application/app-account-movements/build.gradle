@@ -5,6 +5,7 @@ dependencies {
     implementation project(':usecase')
     implementation project(':mysql')
     implementation project(':rest')
+    implementation project(":model")
     implementation project(':rabbitmq-send-receive-information')
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-amqp'

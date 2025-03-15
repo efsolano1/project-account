@@ -30,4 +30,8 @@ public class MovementEntity {
     @JoinColumn(name="id_account", referencedColumnName = "id_account")
     private AccountEntity account;
 
+    MovementEntity(String idMovement){
+        this.idMovement = idMovement;
+    }
+
 }
