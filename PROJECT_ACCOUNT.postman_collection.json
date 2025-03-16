@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "73e9b08f-fefd-41bb-90e2-0762859d998f",
+		"name": "PROJECT_ACCOUNT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17931610"
+	},
+	"item": [
+		{
+			"name": "CLIENTE",
+			"item": [
+				{
+					"name": "GetCustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/clientes/serfsfsdfd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clientes",
+								"serfsfsdfd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllCustomers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"345678901\",\r\n    \"state\":\"true\",\r\n    \"name\":\"Carlos Jaramillo\",\r\n    \"gender\":\"Male\",\r\n    \"age\":19,\r\n    \"identification\":\"1105678239\",\r\n    \"address\":\"Esmeraldas - Playas\",\r\n    \"phone\":\"093454672893\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCustomer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCustomer\":\"2339e217-ef67-49db-a63b-690da6c14284\",\r\n    \"password\":\"345678901\",\r\n    \"state\":\"true\",\r\n    \"name\":\"Carlos Jaramillo\",\r\n    \"gender\":\"Male\",\r\n    \"age\":25,\r\n    \"identification\":\"1105678239\",\r\n    \"address\":\"Esmeraldas - La Joya\",\r\n    \"phone\":\"093454672893\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCustomer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/clientes/2339e217-ef67-49db-a63b-690da6c14284",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clientes",
+								"2339e217-ef67-49db-a63b-690da6c14284"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CUENTAS",
+			"item": [
+				{
+					"name": "GetAccountById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllAccounts",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\":\"1231231231\",\r\n    \"typeAccount\":\"Corriente\",\r\n    \"openingBalance\":100,\r\n    \"state\":\"true\",\r\n    \"idCustomer\":\"fccb5a3f-12f9-4480-92c7-82c9668aa3c6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/cuentas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAccount",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAccount\":\"f9d51f00-ff36-48cf-a051-fa5203bf37f0\",\r\n    \"accountNumber\":\"1231231235\",\r\n    \"typeAccount\":\"Corriente\",\r\n    \"openingBalance\":2100,\r\n    \"state\":\"true\",\r\n    \"idCustomer\":\"fccb5a3f-12f9-4480-92c7-82c9668aa3c6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/cuentas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/cuentas/reportes?dateRange=2025/03/15-2025/03/16&identification=fccb5a3f-12f9-4480-92c7-82c9668aa3c6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"cuentas",
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "dateRange",
+									"value": "2025/03/15-2025/03/16"
+								},
+								{
+									"key": "identification",
+									"value": "fccb5a3f-12f9-4480-92c7-82c9668aa3c6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MOVIMIENTOS",
+			"item": [
+				{
+					"name": "GetMovementById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllMovements",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "SaveMovement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"typeMovement\":\"Retiro\",\r\n    \"amount\":-500000,\r\n    \"detailMovement\":\"asdad\",\r\n    \"idAccount\":\"ea4246d3-acba-4f1a-a518-76baf09f8ebc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/movimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"movimiento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

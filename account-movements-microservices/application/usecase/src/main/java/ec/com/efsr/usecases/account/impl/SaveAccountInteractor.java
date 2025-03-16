@@ -28,7 +28,7 @@ public class SaveAccountInteractor implements ISaveAccountInteractor {
         response = sendAndReceiveInformation.sendAndReceiveInformation(account.getIdCustomer());
         responseData = (String) response;
 
-        if (response == null || response == "" || responseData == null || responseData == "") {
+        if (response == null || response == "" || responseData.isEmpty()) {
             throw new CustomerNotFoundException("No se pudo obtener el id del cliente");
         }
         account.setIdCustomer(responseData.split(",")[0]);

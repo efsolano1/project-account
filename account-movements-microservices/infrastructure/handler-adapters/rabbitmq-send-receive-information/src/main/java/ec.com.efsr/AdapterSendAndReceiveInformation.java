@@ -26,10 +26,6 @@ public class AdapterSendAndReceiveInformation implements ISendAndReceiveInformat
                 routingKey,
                 information
         );
-
-        if (response != null) {
-            return response.toString();
-        }
-        return null;
+       return   response != null ? response.toString(): null;
     }
 }

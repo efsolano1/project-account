@@ -31,7 +31,7 @@ public class UpdateAccountInteractor implements IUpdateAccountInteractor {
         String responseData;
         response = sendAndReceiveInformation.sendAndReceiveInformation(account.getIdCustomer());
         responseData = (String) response;
-        if (response == null || response == "" || responseData == null || responseData == "") {
+        if (response == null || response == "" || responseData.isEmpty()) {
             throw new CustomerNotFoundException("Error actualizando cuenta, cliente no encontrado");
         }
         account.setIdCustomer(responseData.split(",")[0]);
