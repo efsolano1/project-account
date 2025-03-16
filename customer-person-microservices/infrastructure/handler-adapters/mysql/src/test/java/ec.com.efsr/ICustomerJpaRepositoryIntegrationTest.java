@@ -33,10 +33,9 @@ public class ICustomerJpaRepositoryIntegrationTest {
     @Test
     @DisplayName("shouldReturnCustomer_whenCustomerSearchById_thenCustomerExistInDatabase")
     void findById_CustomerExists_ReturnsCustomer() {
-        // Act
+
         CustomerEntity result = customerJpaRepository.findById("123").orElse(null);
 
-        // Assert
         assertNotNull(result);
         assertEquals("123", result.getIdCustomer());
         assertEquals("John Doe", result.getName());
@@ -45,10 +44,9 @@ public class ICustomerJpaRepositoryIntegrationTest {
     @Test
     @DisplayName("shouldReturnEmpty_whenCustomerSearchById_thenCustomerDoesNotExistInDatabase")
     void findById_CustomerDoesNotExist_ReturnsEmpty() {
-        // Act
+
         CustomerEntity result = customerJpaRepository.findById("999").orElse(null);
 
-        // Assert
         assertEquals(null, result);
     }
 }

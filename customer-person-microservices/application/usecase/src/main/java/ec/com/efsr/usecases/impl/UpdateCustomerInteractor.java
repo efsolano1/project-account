@@ -16,6 +16,6 @@ public class UpdateCustomerInteractor implements IUpdateCustomerInteractor {
     public Customer updateCustomer(Customer customer) {
         customerRepository.findCustomerById(customer.getIdCustomer());
         return customerRepository.updateCustomer(customer)
-                .orElseThrow(()-> new CustomerUpdateException("Error actualizando cliente"));
+                .orElseThrow(() -> new CustomerUpdateException("Error actualizando cliente"));
     }
 }

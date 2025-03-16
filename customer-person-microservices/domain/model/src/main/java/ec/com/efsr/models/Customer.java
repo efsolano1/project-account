@@ -1,8 +1,8 @@
 package ec.com.efsr.models;
 
-public class Customer extends Person{
+public class Customer extends Person {
     private String idCustomer;
-    private String  password;
+    private String password;
     private String state;
 
     public Customer() {

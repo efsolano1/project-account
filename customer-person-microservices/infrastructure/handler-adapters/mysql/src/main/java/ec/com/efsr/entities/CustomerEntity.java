@@ -12,12 +12,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerEntity extends Person{
+public class CustomerEntity extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id_customer")
     private String idCustomer;
-    private String  password;
+    private String password;
     private String state;
 
 

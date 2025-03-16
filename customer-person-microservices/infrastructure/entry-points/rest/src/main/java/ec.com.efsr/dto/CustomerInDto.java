@@ -12,7 +12,7 @@ public class CustomerInDto {
     private String idCustomer;
     @NotNull(message = "Contraseña requerida")
     @Size(min = 8, max = 30, message = "La contraseña debe tener entre 8 y 30 caracteres")
-    private String  password;
+    private String password;
 
     @NotNull(message = "Estado requerido")
     @Pattern(regexp = "true|false", message = "Estado debe ser true o false")
@@ -27,8 +27,8 @@ public class CustomerInDto {
     private String gender;
 
     @NotNull(message = "Edad requerida")
-    @Min(value=18, message = "Edad debe ser mayor a 18 años")
-    @Max(value=80, message = "Edad debe ser menor a 80 años")
+    @Min(value = 18, message = "Edad debe ser mayor a 18 años")
+    @Max(value = 80, message = "Edad debe ser menor a 80 años")
     private int age;
 
     @NotBlank(message = "Identificación requerida")

@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CustomerOutDto {
     private String idCustomer;
-    private String  password;
+    private String password;
     private String state;
     private String name;
     private String gender;

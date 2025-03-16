@@ -1,11 +1,9 @@
 package ec.com.efsr;
 
-
 import ec.com.efsr.exceptions.CustomersNotFoundException;
 import ec.com.efsr.models.Customer;
 import ec.com.efsr.repository.CustomerRepositoryPort;
 import ec.com.efsr.usecases.impl.FindAllCustomersInteractor;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

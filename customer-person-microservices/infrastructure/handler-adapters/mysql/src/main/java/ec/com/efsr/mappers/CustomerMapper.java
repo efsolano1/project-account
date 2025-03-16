@@ -17,13 +17,13 @@ public class CustomerMapper {
         customer.setAddress(customerEntity.getAddress());
         customer.setPhone(customerEntity.getPhone());
         return customer;
-}
-public static CustomerEntity customerToCustomerEntity(Customer customer){
+    }
+
+    public static CustomerEntity customerToCustomerEntity(Customer customer) {
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setIdCustomer(customer.getIdCustomer());
         customerEntity.setPassword(customer.getPassword());
         customerEntity.setState(customer.getState());
-        //customerEntity.setIdPerson(customer.getIdPerson());
         customerEntity.setName(customer.getName());
         customerEntity.setGender(customer.getGender());
         customerEntity.setAge(customer.getAge());
@@ -31,5 +31,5 @@ public static CustomerEntity customerToCustomerEntity(Customer customer){
         customerEntity.setAddress(customer.getAddress());
         customerEntity.setPhone(customer.getPhone());
         return customerEntity;
-}
+    }
 }

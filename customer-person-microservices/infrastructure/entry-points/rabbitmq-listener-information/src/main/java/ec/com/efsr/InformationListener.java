@@ -21,13 +21,12 @@ public class InformationListener implements IInformationListener {
     @Override
     @RabbitListener(queues = "${projectaccount.name_queue}")
     public String receiveInformation(String information) {
-        try{
+        try {
             Customer customer = findCustomerByIdInteractor.findCustomerById(information);
-            return customer.getIdCustomer()+","+customer.getName();
-        }catch(Exception e){
-            System.out.println("Error en consulta del cliente "+e.getMessage());
+            return customer.getIdCustomer() + "," + customer.getName();
+        } catch (Exception e) {
+            System.out.println("Error en consulta del cliente " + e.getMessage());
             return "";
         }
-
     }
 }

@@ -1,6 +1,5 @@
 package ec.com.efsr.usecases.impl;
 
-import ec.com.efsr.models.Customer;
 import ec.com.efsr.repository.CustomerRepositoryPort;
 import ec.com.efsr.usecases.IDeleteCustomerInteractor;
 

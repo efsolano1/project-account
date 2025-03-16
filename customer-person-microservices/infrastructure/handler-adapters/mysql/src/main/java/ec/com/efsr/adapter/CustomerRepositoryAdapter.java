@@ -17,8 +17,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class CustomerRepositoryAdapter implements CustomerRepositoryPort{
-private final ICustomerJpaRepository customerRepository;
+public class CustomerRepositoryAdapter implements CustomerRepositoryPort {
+    private final ICustomerJpaRepository customerRepository;
 
     public CustomerRepositoryAdapter(ICustomerJpaRepository customerRepository) {
         this.customerRepository = customerRepository;
@@ -27,7 +27,7 @@ private final ICustomerJpaRepository customerRepository;
     @Override
     public Optional<Customer> findCustomerById(String id) {
         CustomerEntity customerEntity = customerRepository.findById(id).orElse(null);
-        if(customerEntity == null){
+        if (customerEntity == null) {
             throw new CustomerNotFoundException("Cliente con  identificacion " + id + " no encontrado");
         }
         return Optional.of(CustomerMapper.customerEntityToModel(customerEntity));
@@ -48,17 +48,17 @@ private final ICustomerJpaRepository customerRepository;
     @Override
     public Customer saveCustomer(Customer customer) {
         var customerEntity = customerRepository.save(CustomerMapper.customerToCustomerEntity(customer));
-        if(customerEntity == null){
+        if (customerEntity == null) {
             throw new CustomerSaveException("Error al guardar el cliente.");
         }
-            return CustomerMapper.customerEntityToModel(customerEntity);
+        return CustomerMapper.customerEntityToModel(customerEntity);
     }
 
     @Override
     public Optional<Customer> updateCustomer(Customer customer) {
-        var customerEntity= customerRepository.save(CustomerMapper.customerToCustomerEntity(customer));
-        if(customerEntity == null){
-            throw  new CustomerUpdateException("Error al actualizar el cliente");
+        var customerEntity = customerRepository.save(CustomerMapper.customerToCustomerEntity(customer));
+        if (customerEntity == null) {
+            throw new CustomerUpdateException("Error al actualizar el cliente");
         }
         return Optional.of(CustomerMapper.customerEntityToModel(customerEntity));
     }

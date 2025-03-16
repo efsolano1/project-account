@@ -41,11 +41,11 @@ public class CustomerMediator {
         return CustomerMapper.customerToCustomerOutDTO(saveCustomerInteractor.saveCustomer(CustomerMapper.customerInDtoToCustomer(customerInDto)));
     }
 
-    public CustomerOutDto updateCustomer(CustomerInDto customerInDto){
+    public CustomerOutDto updateCustomer(CustomerInDto customerInDto) {
         return CustomerMapper.customerToCustomerOutDTO(updateCustomerInteractor.updateCustomer(CustomerMapper.customerInDtoToCustomer(customerInDto)));
     }
 
-    public String deleteCustomer(String id){
+    public String deleteCustomer(String id) {
         deleteCustomerInteractor.deleteCustomer(id);
         return "Se elimino correctamente";
     }
