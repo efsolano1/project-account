@@ -19,8 +19,8 @@ public class SaveAccountInteractor implements ISaveAccountInteractor {
 
     @Override
     public Account saveAccount(Account account) {
-       if(accountRepository.findAccountByAccountNumber(account.getAccountNumber()) != null){
-            throw new AccountNumberExistException("El numero de cuenta"+account.getAccountNumber()+" ya existe");
+        if (accountRepository.findAccountByAccountNumber(account.getAccountNumber()) != null) {
+            throw new AccountNumberExistException("El numero de cuenta" + account.getAccountNumber() + " ya existe");
         }
         Object response;
         String responseData;
@@ -28,13 +28,13 @@ public class SaveAccountInteractor implements ISaveAccountInteractor {
         response = sendAndReceiveInformation.sendAndReceiveInformation(account.getIdCustomer());
         responseData = (String) response;
 
-        if(response == null || response == "" || responseData == null || responseData == ""){
+        if (response == null || response == "" || responseData == null || responseData == "") {
             throw new CustomerNotFoundException("No se pudo obtener el id del cliente");
         }
-       account.setIdCustomer(responseData.split(",")[0]);
+        account.setIdCustomer(responseData.split(",")[0]);
 
         Account accountSaved = accountRepository.saveAccount(account).orElse(null);
-        if(accountSaved == null){
+        if (accountSaved == null) {
             throw new AccountNotSaveException("No se pudo guardar la cuenta");
         }
         return accountSaved;

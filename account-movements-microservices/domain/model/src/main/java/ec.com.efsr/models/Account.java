@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Account {
-    private String  idAccount;
+    private String idAccount;
     private String accountNumber;
     private String typeAccount;
     private BigDecimal openingBalance;

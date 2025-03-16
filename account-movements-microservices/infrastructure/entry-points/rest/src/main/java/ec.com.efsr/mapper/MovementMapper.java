@@ -6,7 +6,7 @@ import ec.com.efsr.models.Account;
 import ec.com.efsr.models.Movement;
 
 public class MovementMapper {
-    public static MovementOutDto movementToMovementOutDto(Movement movement){
+    public static MovementOutDto movementToMovementOutDto(Movement movement) {
         if (movement == null) {
             return null;
         }
@@ -21,7 +21,7 @@ public class MovementMapper {
         return movementOutDto;
     }
 
-    public static Movement movementInDtoToMovement(MovementInDto movementInDto){
+    public static Movement movementInDtoToMovement(MovementInDto movementInDto) {
         if (movementInDto == null) {
             return null;
         }

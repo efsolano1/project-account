@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
-public class AccountRepositoryAdapter  implements AccountRepositoryPort {
+public class AccountRepositoryAdapter implements AccountRepositoryPort {
     private final IAccountJpaRepository accountJpaRepository;
 
     public AccountRepositoryAdapter(IAccountJpaRepository accountJpaRepository) {
@@ -25,7 +25,7 @@ public class AccountRepositoryAdapter  implements AccountRepositoryPort {
     @Override
     public Optional<Account> findAccountById(String id) {
         AccountEntity accountEntity = accountJpaRepository.findById(id).orElse(null);
-        if(accountEntity == null){
+        if (accountEntity == null) {
             throw new AccountNotFoundException("Cuenta no encontrada");
         }
         return Optional.of(AccountMapper.accountEntityToModel(accountEntity));
@@ -34,7 +34,7 @@ public class AccountRepositoryAdapter  implements AccountRepositoryPort {
     @Override
     public List<Account> findAllAccounts() {
         List<AccountEntity> accounts = accountJpaRepository.findAll();
-        if(accounts == null){
+        if (accounts == null) {
             throw new AccountNotFoundException("No hay cuentas en la BD.");
         }
         return accounts.stream()
@@ -50,7 +50,7 @@ public class AccountRepositoryAdapter  implements AccountRepositoryPort {
     @Override
     public Optional<Account> saveAccount(Account account) {
         AccountEntity accountEntity = accountJpaRepository.save(AccountMapper.accountToAccountEntity(account));
-        if(accountEntity == null){
+        if (accountEntity == null) {
             throw new AccountNotSaveException("Error al guardar la cuenta.");
         }
         return Optional.of(AccountMapper.accountEntityToModel(accountEntity));
@@ -59,7 +59,7 @@ public class AccountRepositoryAdapter  implements AccountRepositoryPort {
     @Override
     public Optional<Account> updateAccount(Account account) {
         AccountEntity accountEntity = accountJpaRepository.save(AccountMapper.accountToAccountEntity(account));
-        if(accountEntity == null){
+        if (accountEntity == null) {
             throw new AccountNotUpdateException("Error al actualizar la cuenta.");
         }
         return Optional.of(AccountMapper.accountEntityToModel(accountEntity));
@@ -68,7 +68,7 @@ public class AccountRepositoryAdapter  implements AccountRepositoryPort {
     @Override
     public Account findByIdCustomer(String idCustomer) {
         AccountEntity accountEntity = accountJpaRepository.findByIdCustomer(idCustomer);
-        if(accountEntity == null){
+        if (accountEntity == null) {
             throw new AccountNotFoundException("Cuenta no encontrada para el cliente: " + idCustomer);
         }
         return AccountMapper.accountEntityToModel(accountEntity);

@@ -30,13 +30,13 @@ public class MovementRestController {
     public ResponseEntity<List<MovementOutDto>> findAllMovements() {
         var response = movementMediator.findAllMovements();
         return response.isEmpty() ?
-                ResponseEntity.status(204).build():
-                ResponseEntity.status(200).body(response) ;
+                ResponseEntity.status(204).build() :
+                ResponseEntity.status(200).body(response);
 
     }
 
     @PostMapping
-    public ResponseEntity<MovementOutDto> saveMovement(@RequestBody @Valid MovementInDto movementInDto){
+    public ResponseEntity<MovementOutDto> saveMovement(@RequestBody @Valid MovementInDto movementInDto) {
         var response = movementMediator.saveMovement(movementInDto);
         return response != null ?
                 ResponseEntity.status(201).body(response) :

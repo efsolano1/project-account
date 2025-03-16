@@ -15,6 +15,6 @@ public class FindAccountByIdInteractor implements IFindAccountByIdInteractor {
     @Override
     public Account findAccountById(String idAccount) {
         return accountRepository.findAccountById(idAccount)
-                .orElseThrow(()-> new AccountNotFoundException("Cuenta no encontrada"));
+                .orElseThrow(() -> new AccountNotFoundException("Cuenta no encontrada"));
     }
 }

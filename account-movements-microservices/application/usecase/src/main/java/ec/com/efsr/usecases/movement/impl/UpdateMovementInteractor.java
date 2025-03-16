@@ -15,7 +15,7 @@ public class UpdateMovementInteractor implements IUpdateMovementInteractor {
     @Override
     public Movement updateMovement(Movement movement) {
         Movement movementUpdated = movementRepositoryPort.updateMovement(movement);
-        if(movementUpdated == null){
+        if (movementUpdated == null) {
             throw new MovementNotUpdatedException("Error al actualizar el movimiento.");
         }
         return movementUpdated;

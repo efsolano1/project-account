@@ -17,7 +17,7 @@ public class FindAllMovementsInteractor implements IFindAllMovementsInteractor {
     @Override
     public List<Movement> findAllMovements() {
         List<Movement> movements = movementRepositoryPort.findAllMovements();
-        if(movements.isEmpty()){
+        if (movements.isEmpty()) {
             throw new MovementsNotFoundException("No se encontraron movimientos");
         }
         return movements;

@@ -1,7 +1,13 @@
 package ec.com.efsr.entities;
 
-import ec.com.efsr.models.Account;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,15 +28,15 @@ public class MovementEntity {
     @Column(name = "id_movement")
     private String idMovement;
     private LocalDateTime date;
-    private String  typeMovement;
+    private String typeMovement;
     private BigDecimal amount;
-    private BigDecimal  balance;
+    private BigDecimal balance;
     private String detailMovement;
     @ManyToOne
-    @JoinColumn(name="id_account", referencedColumnName = "id_account")
+    @JoinColumn(name = "id_account", referencedColumnName = "id_account")
     private AccountEntity account;
 
-    MovementEntity(String idMovement){
+    MovementEntity(String idMovement) {
         this.idMovement = idMovement;
     }
 

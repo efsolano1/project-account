@@ -21,7 +21,7 @@ public class HandlerCustomerInfoProvider implements CustomerInfoProvider {
         response = sendAndReceiveInformation.sendAndReceiveInformation(idCustomer);
         responseData = (String) response;
 
-        if(response == null || response == "" || responseData == null || responseData == ""){
+        if (response == null || response == "" || responseData == null || responseData == "") {
             throw new CustomerNotFoundException("No se pudo obtener informacion del cliente");
         }
         return responseData;

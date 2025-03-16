@@ -10,7 +10,6 @@ import ec.com.efsr.models.Account;
 import ec.com.efsr.models.Movement;
 import ec.com.efsr.repository.IMovementJpaRepository;
 import ec.com.efsr.repository.MovementRepositoryPort;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,17 +26,17 @@ public class MovementRepositoryAdapter implements MovementRepositoryPort {
 
     @Override
     public Optional<Movement> findMovementById(String id) {
-         MovementEntity movementEntity = movementRepository.findById(id).orElse(null);
-         if(movementEntity == null){
-             throw new MovementNotFoundException("Movimiento no encontrado");
-         }
-         return Optional.of(MovementMapper.movementEntityToMovement(movementEntity));
+        MovementEntity movementEntity = movementRepository.findById(id).orElse(null);
+        if (movementEntity == null) {
+            throw new MovementNotFoundException("Movimiento no encontrado");
+        }
+        return Optional.of(MovementMapper.movementEntityToMovement(movementEntity));
     }
 
     @Override
     public List<Movement> findAllMovements() {
         List<MovementEntity> movements = movementRepository.findAll();
-        if(movements.isEmpty()){
+        if (movements.isEmpty()) {
             throw new MovementsNotFoundException("No hay movimientos en la BD");
         }
         return movements.stream()
@@ -50,7 +49,7 @@ public class MovementRepositoryAdapter implements MovementRepositoryPort {
         Account account = new Account(movement.getIdAccount());
         movement.setAccount(account);
         var movementEntity = movementRepository.save(MovementMapper.movementToMovementEntity(movement));
-        if(movementEntity == null){
+        if (movementEntity == null) {
             throw new MovementNotSaveException("Error al guardar el movimiento.");
         }
         return MovementMapper.movementEntityToMovement(movementEntity);
@@ -61,16 +60,11 @@ public class MovementRepositoryAdapter implements MovementRepositoryPort {
         Account account = new Account(movement.getIdAccount());
         movement.setAccount(account);
         var movementEntity = movementRepository.save(MovementMapper.movementToMovementEntity(movement));
-        if(movementEntity == null){
+        if (movementEntity == null) {
             throw new MovementNotUpdatedException("Error al actualizar el movimiento");
         }
         return MovementMapper.movementEntityToMovement(movementEntity);
     }
-
-//    @Override
-//    public List<Movement> findMovementsByReport(Specification<Movement> spec) {
-//        return List.of();
-//    }
 
     @Override
     public List<Movement> findMovementsByIdAccount(String idAccount) {

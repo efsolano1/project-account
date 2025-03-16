@@ -15,7 +15,8 @@ public class AccountMediator {
     private final IFindAccountByIdInteractor findAccountByIdInteractor;
     private final IFindAllAccountsInteractor findAllAccountsInteractor;
     private final ISaveAccountInteractor saveAccountInteractor;
-    private final IUpdateAccountInteractor updateAccountInteractor;;
+    private final IUpdateAccountInteractor updateAccountInteractor;
+    ;
     private final IGetAccountMovementReportInteractor getAccountMovementReportInteractor;
 
     public AccountMediator(IFindAccountByIdInteractor findAccountByIdInteractor, IFindAllAccountsInteractor findAllAccountsInteractor, ISaveAccountInteractor saveAccountInteractor, IUpdateAccountInteractor updateAccountInteractor, IGetAccountMovementReportInteractor getAccountMovementReportInteractor) {
@@ -44,10 +45,11 @@ public class AccountMediator {
     public AccountOutDto updateAccount(AccountInDto accountInDto) {
         return AccountMapper.accountToAccountOutDTO(updateAccountInteractor.updateAccount(AccountMapper.accountInDtoToAccount(accountInDto), true));
     }
-    public List<AccountReportOutDto> findAccountReport(String dateRange, String customerId){
-        return getAccountMovementReportInteractor.getAccountMovementReport(dateRange,customerId)
+
+    public List<AccountReportOutDto> findAccountReport(String dateRange, String customerId) {
+        return getAccountMovementReportInteractor.getAccountMovementReport(dateRange, customerId)
                 .stream()
-                .map(info->
+                .map(info ->
                         new AccountReportOutDto(
                                 info.getCustomer(),
                                 info.getAccountNumber(),

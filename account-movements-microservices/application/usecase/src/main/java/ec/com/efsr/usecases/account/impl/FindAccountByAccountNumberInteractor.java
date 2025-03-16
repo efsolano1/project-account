@@ -15,7 +15,7 @@ public class FindAccountByAccountNumberInteractor implements IFindAccountByAccou
     @Override
     public Account findAccountByAccountNumber(String accountNumber) {
         Account account = accountRepository.findAccountByAccountNumber(accountNumber);
-        if(account == null){
+        if (account == null) {
             throw new AccountNumberNotFoundException("Cuenta con numero " + accountNumber + " no encontrada");
         }
         return account;

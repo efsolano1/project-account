@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 
@@ -15,7 +14,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountInDto {
-    private String  idAccount;
+    private String idAccount;
     @NotBlank(message = "Numero de cuenta no puede ser nulo o vacío")
     @Size(min = 10, max = 12, message = "Numero de cuenta debe tener entre 10 y 12 dígitos")
     @Pattern(regexp = "\\d{10,12}", message = "Numero de cuenta debe contener solo dígitos")

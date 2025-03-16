@@ -1,6 +1,18 @@
 package ec.com.efsr;
 
-import ec.com.efsr.exceptions.*;
+import ec.com.efsr.exceptions.AccountNotFoundException;
+import ec.com.efsr.exceptions.AccountNotSaveException;
+import ec.com.efsr.exceptions.AccountNotUpdateException;
+import ec.com.efsr.exceptions.AccountNumberExistException;
+import ec.com.efsr.exceptions.AccountNumberNotFoundException;
+import ec.com.efsr.exceptions.AccountsNotFoundException;
+import ec.com.efsr.exceptions.BalanceNotAvailableException;
+import ec.com.efsr.exceptions.CustomerNotFoundException;
+import ec.com.efsr.exceptions.DateFormatException;
+import ec.com.efsr.exceptions.MovementNotFoundException;
+import ec.com.efsr.exceptions.MovementNotSaveException;
+import ec.com.efsr.exceptions.MovementNotUpdatedException;
+import ec.com.efsr.exceptions.MovementsNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -13,6 +25,13 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class CustomExceptions {
+    @ExceptionHandler(DateFormatException.class)
+    public ResponseEntity<Map<String, String>> dateFormatExceptionHandler(DateFormatException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(MovementNotUpdatedException.class)
     public ResponseEntity<Map<String, String>> movementNotUpdatedExceptionHandler(MovementNotUpdatedException ex) {
         Map<String, String> response = new HashMap<>();

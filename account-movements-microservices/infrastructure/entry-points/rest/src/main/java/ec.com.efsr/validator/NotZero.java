@@ -9,10 +9,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Constraint(validatedBy = NotZeroValidator.class)
-@Target({ ElementType.FIELD, ElementType.PARAMETER })
+@Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NotZero {
     String message() default "El monto no puede ser cero";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

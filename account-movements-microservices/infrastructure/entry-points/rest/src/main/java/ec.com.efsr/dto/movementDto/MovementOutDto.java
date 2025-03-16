@@ -15,9 +15,9 @@ import java.time.LocalDateTime;
 public class MovementOutDto {
     private String idMovement;
     private LocalDateTime date;
-    private String  typeMovement;
+    private String typeMovement;
     private BigDecimal amount;
-    private BigDecimal  balance;
+    private BigDecimal balance;
     private String detailMovement;
     private String idAccount;
 }

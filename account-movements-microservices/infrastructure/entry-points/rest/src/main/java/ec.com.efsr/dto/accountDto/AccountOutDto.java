@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountOutDto {
-    private String  idAccount;
+    private String idAccount;
     private String accountNumber;
     private String typeAccount;
     private BigDecimal openingBalance;

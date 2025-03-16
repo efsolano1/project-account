@@ -17,7 +17,7 @@ public class FindAllAccountsInteractor implements IFindAllAccountsInteractor {
     @Override
     public List<Account> findAllAccounts() {
         List<Account> accounts = accountRepository.findAllAccounts();
-        if(accounts.isEmpty()){
+        if (accounts.isEmpty()) {
             throw new AccountsNotFoundException("No se encontraron cuentas");
         }
         return accounts;
