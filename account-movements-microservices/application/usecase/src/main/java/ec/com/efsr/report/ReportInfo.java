@@ -1,6 +1,7 @@
 package ec.com.efsr.report;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class ReportInfo {
     private String customer;
@@ -8,13 +9,14 @@ public class ReportInfo {
     private String accountType;
     private BigDecimal openingBalance;
     private String state;
-    private String amountMovement;
-    private String availableBalance;
+    private BigDecimal amountMovement;
+    private BigDecimal availableBalance;
+    private LocalDateTime dateMovement;
 
     public ReportInfo() {
     }
 
-    public ReportInfo(String customer, String accountNumber, String accountType, BigDecimal openingBalance, String state, String amountMovement, String availableBalance) {
+    public ReportInfo(String customer, String accountNumber, String accountType, BigDecimal openingBalance, String state, BigDecimal amountMovement, BigDecimal availableBalance, LocalDateTime dateMovement) {
         this.customer = customer;
         this.accountNumber = accountNumber;
         this.accountType = accountType;
@@ -22,6 +24,7 @@ public class ReportInfo {
         this.state = state;
         this.amountMovement = amountMovement;
         this.availableBalance = availableBalance;
+        this.dateMovement = dateMovement;
     }
 
     public String getCustomer() {
@@ -64,19 +67,27 @@ public class ReportInfo {
         this.state = state;
     }
 
-    public String getAmountMovement() {
+    public BigDecimal getAmountMovement() {
         return amountMovement;
     }
 
-    public void setAmountMovement(String amountMovement) {
+    public void setAmountMovement(BigDecimal amountMovement) {
         this.amountMovement = amountMovement;
     }
 
-    public String getAvailableBalance() {
+    public BigDecimal getAvailableBalance() {
         return availableBalance;
     }
 
-    public void setAvailableBalance(String availableBalance) {
+    public void setAvailableBalance(BigDecimal availableBalance) {
         this.availableBalance = availableBalance;
+    }
+
+    public LocalDateTime getDateMovement() {
+        return dateMovement;
+    }
+
+    public void setDateMovement(LocalDateTime dateMovement) {
+        this.dateMovement = dateMovement;
     }
 }

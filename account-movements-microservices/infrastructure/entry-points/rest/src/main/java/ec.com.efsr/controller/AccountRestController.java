@@ -2,8 +2,10 @@ package ec.com.efsr.controller;
 
 import ec.com.efsr.dto.accountDto.AccountInDto;
 import ec.com.efsr.dto.accountDto.AccountOutDto;
+import ec.com.efsr.dto.reportDto.AccountReportOutDto;
 import ec.com.efsr.mediator.AccountMediator;
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,5 +49,14 @@ public class AccountRestController {
         return response != null?
                 ResponseEntity.status(200).body(response):
                 ResponseEntity.status(500).build();
+    }
+    @GetMapping("/reportes")
+    public ResponseEntity<List<AccountReportOutDto>> getReport(
+            @RequestParam("dateRange") String dateRange,
+            @RequestParam("identification") String customerId){
+        var response = accountMediator.findAccountReport(dateRange,customerId);
+        return response.isEmpty()?
+                ResponseEntity.status(204).build():
+                ResponseEntity.status(200).body(response) ;
     }
 }

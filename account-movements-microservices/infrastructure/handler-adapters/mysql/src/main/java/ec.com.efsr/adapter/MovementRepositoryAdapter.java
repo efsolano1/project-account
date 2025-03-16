@@ -67,8 +67,17 @@ public class MovementRepositoryAdapter implements MovementRepositoryPort {
         return MovementMapper.movementEntityToMovement(movementEntity);
     }
 
+//    @Override
+//    public List<Movement> findMovementsByReport(Specification<Movement> spec) {
+//        return List.of();
+//    }
+
     @Override
-    public List<Movement> findMovementsByReport(Specification<Movement> spec) {
-        return List.of();
+    public List<Movement> findMovementsByIdAccount(String idAccount) {
+        List<MovementEntity> movementList = movementRepository.findMovementsByIdAccount(idAccount);
+        return movementList
+                .stream()
+                .map(MovementMapper::movementEntityToMovement)
+                .collect(Collectors.toList());
     }
 }
