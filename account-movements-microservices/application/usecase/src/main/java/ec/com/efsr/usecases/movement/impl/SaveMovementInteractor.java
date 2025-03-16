@@ -1,5 +1,8 @@
 package ec.com.efsr.usecases.movement.impl;
 
+import ec.com.efsr.exceptions.AccountNotFoundException;
+import ec.com.efsr.exceptions.BalanceNotAvailableException;
+import ec.com.efsr.exceptions.MovementNotSaveException;
 import ec.com.efsr.models.Account;
 import ec.com.efsr.models.Movement;
 import ec.com.efsr.repository.AccountRepositoryPort;
@@ -28,27 +31,32 @@ public class SaveMovementInteractor implements ISaveMovementInteractor {
 
         Account  accountUpdate = accountRepositoryPort.findAccountById(movement.getAccount().getIdAccount()).orElse(null);
         if (accountUpdate == null) {
-            throw new RuntimeException("La cuenta no existe");
+            throw new AccountNotFoundException("La cuenta no existe");
         }
 
         BigDecimal newBalance = accountUpdate.getOpeningBalance().add(movement.getAmount());
         if (newBalance.compareTo(BigDecimal.ZERO) < 0) {
-            throw new RuntimeException("Saldo no disponible");
+            throw new BalanceNotAvailableException("Saldo no disponible");
         }
 
         accountUpdate.setOpeningBalance(newBalance);
         updateAccountInteractor.updateAccount(accountUpdate, false);
 
         movement.setDate(LocalDateTime.now());
-        movement.setDetailMovement(movement.getAmount().compareTo(BigDecimal.ZERO) < 0
-                ? TypeTransaction.RETIRO.name() +" "+ movement.getAmount().negate()
-                : TypeTransaction.DEPOSITO.name() + " "+movement.getAmount());
 
+        String detail;
+        if (movement.getAmount().compareTo(BigDecimal.ZERO) < 0) {
+            detail = TypeTransaction.RETIRO.name() + " " + movement.getAmount().abs();
+        } else {
+            detail = TypeTransaction.DEPOSITO.name() + " " + movement.getAmount();
+        }
+
+        movement.setDetailMovement(detail);
         movement.setBalance(newBalance);
         movement.setIdAccount(accountUpdate.getIdAccount());
         Movement movementSaved = this.movementRepositoryPort.saveMovement(movement);
         if (movementSaved == null) {
-            throw new RuntimeException("Error creando movimiento");
+            throw new MovementNotSaveException("Error creando movimiento");
         }
 
 

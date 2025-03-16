@@ -64,4 +64,13 @@ public class AccountRepositoryAdapter  implements AccountRepositoryPort {
         }
         return Optional.of(AccountMapper.accountEntityToModel(accountEntity));
     }
+
+    @Override
+    public Account findByIdCustomer(String idCustomer) {
+        AccountEntity accountEntity = accountJpaRepository.findByIdCustomer(idCustomer);
+        if(accountEntity == null){
+            throw new AccountNotFoundException("Cuenta no encontrada para el cliente: " + idCustomer);
+        }
+        return AccountMapper.accountEntityToModel(accountEntity);
+    }
 }

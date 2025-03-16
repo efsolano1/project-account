@@ -1,6 +1,7 @@
 package ec.com.efsr.repository;
 
 import ec.com.efsr.models.Movement;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,4 +10,6 @@ public interface MovementRepositoryPort {
     Optional<Movement> findMovementById(String id);
     List<Movement> findAllMovements();
     Movement saveMovement(Movement movement);
+    Movement updateMovement(Movement movement);
+    List<Movement> findMovementsByReport(Specification<Movement> spec);
 }

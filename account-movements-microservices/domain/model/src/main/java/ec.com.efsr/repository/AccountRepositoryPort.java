@@ -11,5 +11,6 @@ public interface AccountRepositoryPort {
     Account findAccountByAccountNumber(String accountNumber);
     Optional<Account> saveAccount(Account account);
     Optional<Account> updateAccount(Account account);
+    Account findByIdCustomer(String idCustomer);
 
 }

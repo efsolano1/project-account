@@ -6,7 +6,11 @@ dependencies {
    // implementation project(':app-utils')
     implementation project(":custom-exceptions")
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    //testImplementation 'org.springframework.boot:spring-boot-starter-test'
-   // testImplementation group: 'io.projectreactor', name: 'reactor-test', version: '3.1.0.RELEASE'
-  //  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation group: 'io.projectreactor', name: 'reactor-test', version: '3.1.0.RELEASE'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
 }

@@ -1,14 +1,6 @@
 package ec.com.efsr;
 
-import ec.com.efsr.exceptions.AccountNotFoundException;
-import ec.com.efsr.exceptions.AccountNotSaveException;
-import ec.com.efsr.exceptions.AccountNotUpdateException;
-import ec.com.efsr.exceptions.AccountNumberExistException;
-import ec.com.efsr.exceptions.AccountNumberNotFoundException;
-import ec.com.efsr.exceptions.AccountsNotFoundException;
-import ec.com.efsr.exceptions.CustomerNotFoundException;
-import ec.com.efsr.exceptions.MovementNotFoundException;
-import ec.com.efsr.exceptions.MovementsNotFoundException;
+import ec.com.efsr.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -21,6 +13,26 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class CustomExceptions {
+    @ExceptionHandler(MovementNotUpdatedException.class)
+    public ResponseEntity<Map<String, String>> movementNotUpdatedExceptionHandler(MovementNotUpdatedException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(BalanceNotAvailableException.class)
+    public ResponseEntity<Map<String, String>> balanceNotAvailableExceptionHandler(BalanceNotAvailableException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(MovementNotSaveException.class)
+    public ResponseEntity<Map<String, String>> movementNotSaveExceptionHandler(MovementNotSaveException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(MovementsNotFoundException.class)
     public ResponseEntity<Map<String, String>> movementsNotFoundExceptionHandler(MovementsNotFoundException ex) {
@@ -40,7 +52,7 @@ public class CustomExceptions {
     public ResponseEntity<Map<String, String>> accountNotUpdateExceptionHandler(AccountNotUpdateException ex) {
         Map<String, String> response = new HashMap<>();
         response.put("message", ex.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(CustomerNotFoundException.class)
@@ -54,14 +66,14 @@ public class CustomExceptions {
     public ResponseEntity<Map<String, String>> accountNotSaveExceptionHandler(AccountNotSaveException ex) {
         Map<String, String> response = new HashMap<>();
         response.put("message", ex.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(AccountNumberExistException.class)
     public ResponseEntity<Map<String, String>> accountNumberExistExceptionHandler(AccountNumberExistException ex) {
         Map<String, String> response = new HashMap<>();
         response.put("message", ex.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(AccountNumberNotFoundException.class)

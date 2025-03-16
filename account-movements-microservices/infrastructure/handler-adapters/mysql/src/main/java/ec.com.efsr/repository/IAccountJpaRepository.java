@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface IAccountJpaRepository extends JpaRepository<AccountEntity, String> {
     AccountEntity findByAccountNumber(String accountNumber);
+    AccountEntity findByIdCustomer(String idCustomer);
+
 }

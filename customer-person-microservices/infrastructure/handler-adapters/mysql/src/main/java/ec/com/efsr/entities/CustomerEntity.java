@@ -20,6 +20,7 @@ public class CustomerEntity extends Person{
     private String  password;
     private String state;
 
+
     public CustomerEntity(String idPerson, String name, String gender, int age, String identification, String address, String phone) {
         super(idPerson, name, gender, age, identification, address, phone);
     }
