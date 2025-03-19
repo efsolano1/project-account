@@ -8,4 +8,4 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
 - [Postman](https://www.postman.com/)
 
 **INSTRUCCIONES.**
-Clonar el repositorio.
+1. Clonar el repositorio.
