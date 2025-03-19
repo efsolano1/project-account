@@ -23,7 +23,10 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
    ```
    4. Para verificar que los contenedores están corriendo, ejecute el siguiente comando
       ```docker ps```
+      Se deberia mostrar la siguiente informacion , si los contenedores estan corriendo:
+      ```
       CONTAINER ID   IMAGE                       COMMAND                  CREATED              STATUS              PORTS                               NAMES
 8a1ba0645cbd   account-movements-service   "java -jar app.jar"      About a minute ago   Up About a minute   0.0.0.0:8081->8081/tcp              microservices-project-account-movements-service-1
 7fe19289bc61   customer-person-service     "java -jar app.jar"      About a minute ago   Up About a minute   0.0.0.0:8082->8082/tcp              microservices-project-customer-person-service-1
 5782d11a841f   mysql:8.0                   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3306->3306/tcp, 33060/tcp   microservices-project-mysql-1
+```
