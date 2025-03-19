@@ -13,8 +13,10 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
    git clone https://github.com/efsolano1/project-account.git
    ```
 3. Acceder a la carpeta del repositorio.\
-   ```cd project-account```
-4. Ejecutar archivo docker-compose.yml, con el siguiente comando:\
+   ```
+   cd project-account
+   ```
+5. Ejecutar archivo docker-compose.yml, con el siguiente comando:\
   ```docker-compose up -d```
    Puede verificar que se han creado los contenedores, deberá verificar algo como en la imagen.
    ```
@@ -23,7 +25,7 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
    ✔ Container microservices-project-mysql-1 Removed
    ✔ Network microservices-project_app-network Removed
    ```
-5. Para verificar que los contenedores están corriendo, ejecute el siguiente comando
+6. Para verificar que los contenedores están corriendo, ejecute el siguiente comando
       ```docker ps```
    La salida debería ser similar a: 
 
