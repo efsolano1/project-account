@@ -20,9 +20,9 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
   ```docker-compose up -d```
    Puede verificar que se han creado los contenedores, deberá verificar algo como en la imagen.
    ```
-   ✔ Network microservices-project_app-network                    Created                                                                                                                                       0.3s
-   ✔ Container microservices-project-mysql-1                      Started                                                                                                                                       3.0s
-   ✔ Container microservices-project-customer-person-service-1    Started                                                                                                                                       1.3s
+   ✔ Network microservices-project_app-network                    Created                                                                                                                                       
+   ✔ Container microservices-project-mysql-1                      Started                                                                                                                                      
+   ✔ Container microservices-project-customer-person-service-1    Started        
    ✔ Container microservices-project-account-movements-service-1  Started   
    ```
 6. Para verificar que los contenedores están corriendo, ejecute el siguiente comando
