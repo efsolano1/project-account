@@ -23,11 +23,8 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
    ```
 4. Para verificar que los contenedores están corriendo, ejecute el siguiente comando
       ```docker ps```
-      Se deberia mostrar la siguiente informacion , si los contenedores estan corriendo:
-      ```
-#Estado de los Contenedores**
 
-#Para verificar que los contenedores están corriendo, ejecuta el comando `docker ps`. La salida debería ser similar a:
+La salida debería ser similar a: 
 
 ```
 CONTAINER ID   IMAGE                       COMMAND                  CREATED              STATUS              PORTS                               NAMES
