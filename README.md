@@ -35,4 +35,4 @@ CONTAINER ID   IMAGE                       COMMAND                  CREATED     
    **3600:** Contenedor para MySQL.
    **8081:** Microservicio Cuentas - Movimientos.
    **8082:** Microservicio Cliente - Persona.
-6. Proceder a ejecutar las operaciones desde postman, pero primero debe cargar el .json `[PROJECT_ACCOUNT.postman_collection.json](https://github.com/efsolano1/project-account/blob/master/PROJECT_ACCOUNT.postman_collection.json)`,  el cual ya contiene estas operaciones `(GET,POST,PUT y DELETE)` , y por medio del cual puede probar los endpoints.
+6. Proceder a ejecutar las operaciones desde postman, pero primero debe cargar el .json [PROJECT_ACCOUNT.postman_collection.json](https://github.com/efsolano1/project-account/blob/master/PROJECT_ACCOUNT.postman_collection.json)`,  el cual ya contiene estas operaciones `(GET,POST,PUT y DELETE) , y por medio del cual puede probar los endpoints.
