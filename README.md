@@ -14,3 +14,11 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
    `cd project-account`
 3. Ejecutar archivo docker-compose.yml, con el siguiente comando:\
   `docker-compose up -d`
+   Puede verificar que se han creado los contenedores, deberá verificar algo como en la imagen.
+   ```
+   ✔ Container microservices-project-account-movements-service-1 Removed
+   ✔ Container microservices-project-customer-person-service-1 Removed
+   ✔ Container microservices-project-mysql-1 Removed
+   ✔ Network microservices-project_app-network Removed
+   ```
+   
