@@ -21,18 +21,23 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
    ✔ Container microservices-project-mysql-1 Removed
    ✔ Network microservices-project_app-network Removed
    ```
-   4. Para verificar que los contenedores están corriendo, ejecute el siguiente comando
+4. Para verificar que los contenedores están corriendo, ejecute el siguiente comando
       ```docker ps```
       Se deberia mostrar la siguiente informacion , si los contenedores estan corriendo:
       ```
-    ## Estado de los Contenedores
+#Estado de los Contenedores**
 
-Para verificar que los contenedores están corriendo, ejecuta el comando `docker ps`. La salida debería ser similar a:
+#Para verificar que los contenedores están corriendo, ejecuta el comando `docker ps`. La salida debería ser similar a:
 
-```text
+```
 CONTAINER ID   IMAGE                       COMMAND                  CREATED              STATUS              PORTS                               NAMES
 8a1ba0645cbd   account-movements-service   "java -jar app.jar"      About a minute ago   Up About a minute   0.0.0.0:8081->8081/tcp              microservices-project-account-movements-service-1
 7fe19289bc61   customer-person-service     "java -jar app.jar"      About a minute ago   Up About a minute   0.0.0.0:8082->8082/tcp              microservices-project-customer-person-service-1
 5782d11a841f   mysql:8.0                   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3306->3306/tcp, 33060/tcp   microservices-project-mysql-1
 ```
-s
+5. Tomar en cuenta los puertos usados por cada contenedor para levantar los microservicios:
+
+**3600:** Contenedor para MySQL.
+**8081:** Microservicio Cuentas - Movimientos.
+**8082:** Microservicio Cliente - Persona.
+
