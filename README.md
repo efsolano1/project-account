@@ -8,9 +8,9 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
 - [Postman](https://www.postman.com/)
 
 **INSTRUCCIONES.**
-1. Clonar el repositorio.
+1. Clonar el repositorio.\
    `git clone https://github.com/efsolano1/project-account.git`
-2. Acceder a la carpeta del repositorio.
+2. Acceder a la carpeta del repositorio.\
    `cd project-account`
-3. Ejecutar archivo docker-compose.yml, con el siguiente comando:
+3. Ejecutar archivo docker-compose.yml, con el siguiente comando:\
   `docker-compose up -d`
