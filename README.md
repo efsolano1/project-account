@@ -9,3 +9,8 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
 
 **INSTRUCCIONES.**
 1. Clonar el repositorio.
+   `git clone https://github.com/efsolano1/project-account.git`
+2. Acceder a la carpeta del repositorio.
+   `cd project-account`
+3. Ejecutar archivo docker-compose.yml, con el siguiente comando:
+  `docker-compose up -d`
