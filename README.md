@@ -7,3 +7,5 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
 - [Docker Compose](https://docs.docker.com/compose/).
 - [Postman](https://www.postman.com/)
 
+**INSTRUCCIONES.**
+Clonar el repositorio.
