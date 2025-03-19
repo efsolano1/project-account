@@ -31,8 +31,8 @@ CONTAINER ID   IMAGE                       COMMAND                  CREATED     
 7fe19289bc61   customer-person-service     "java -jar app.jar"      About a minute ago   Up About a minute   0.0.0.0:8082->8082/tcp              microservices-project-customer-person-service-1
 5782d11a841f   mysql:8.0                   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3306->3306/tcp, 33060/tcp   microservices-project-mysql-1
 ```
-5. Tomar en cuenta los puertos usados por cada contenedor para levantar los microservicios:
-   **3600:** Contenedor para MySQL.
-   **8081:** Microservicio Cuentas - Movimientos.
-   **8082:** Microservicio Cliente - Persona.
+5. Tomar en cuenta los puertos usados por cada contenedor para levantar los microservicios:  
+   **3600:** Contenedor para MySQL.  
+   **8081:** Microservicio Cuentas - Movimientos.  
+   **8082:** Microservicio Cliente - Persona.  
 6. Proceder a ejecutar las operaciones desde postman, pero primero debe cargar el .json [PROJECT_ACCOUNT.postman_collection.json](https://github.com/efsolano1/project-account/blob/master/PROJECT_ACCOUNT.postman_collection.json),  el cual ya contiene estas operaciones `(GET,POST,PUT y DELETE)` , y por medio del cual puede probar los endpoints.
