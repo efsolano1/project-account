@@ -9,10 +9,12 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
 
 **INSTRUCCIONES.**
 1. Clonar el repositorio.\
-   ```git clone https://github.com/efsolano1/project-account.git```
-2. Acceder a la carpeta del repositorio.\
+   ```
+   git clone https://github.com/efsolano1/project-account.git
+   ```
+3. Acceder a la carpeta del repositorio.\
    ```cd project-account```
-3. Ejecutar archivo docker-compose.yml, con el siguiente comando:\
+4. Ejecutar archivo docker-compose.yml, con el siguiente comando:\
   ```docker-compose up -d```
    Puede verificar que se han creado los contenedores, deberá verificar algo como en la imagen.
    ```
@@ -21,7 +23,7 @@ En este repositorio se encuentran dos microservicios para la gestión de una apl
    ✔ Container microservices-project-mysql-1 Removed
    ✔ Network microservices-project_app-network Removed
    ```
-4. Para verificar que los contenedores están corriendo, ejecute el siguiente comando
+5. Para verificar que los contenedores están corriendo, ejecute el siguiente comando
       ```docker ps```
    La salida debería ser similar a: 
 
@@ -37,4 +39,6 @@ CONTAINER ID   IMAGE                       COMMAND                  CREATED     
    **8082:** Microservicio Cliente - Persona.  
 6. Proceder a ejecutar las operaciones desde postman, pero primero debe cargar el .json [PROJECT_ACCOUNT.postman_collection.json](https://github.com/efsolano1/project-account/blob/master/PROJECT_ACCOUNT.postman_collection.json),  el cual ya contiene estas operaciones `(GET,POST,PUT y DELETE)` , y por medio del cual puede probar los endpoints.  
 7. Si quiere detener y eliminar los contenedores ejecute el siguiente comando.  
-    ```docker-compose down```
+    ```
+   docker-compose down
+    ```
