@@ -1,10 +1,7 @@
 package ec.com.efsr.adapter;
 
 import ec.com.efsr.entities.CustomerEntity;
-import ec.com.efsr.exceptions.CustomerNotFoundException;
-import ec.com.efsr.exceptions.CustomerSaveException;
-import ec.com.efsr.exceptions.CustomerUpdateException;
-import ec.com.efsr.exceptions.CustomersNotFoundException;
+import ec.com.efsr.exceptions.*;
 
 import ec.com.efsr.mappers.CustomerMapper;
 import ec.com.efsr.models.Customer;
@@ -61,6 +58,12 @@ public class CustomerRepositoryAdapter implements CustomerRepositoryPort {
             throw new CustomerUpdateException("Error al actualizar el cliente");
         }
         return Optional.of(CustomerMapper.customerEntityToModel(customerEntity));
+    }
+
+    @Override
+    public Customer findCustomerByIdentification(String id) {
+       var customerEntity = customerRepository.findByIdentification(id);
+       return CustomerMapper.customerEntityToModel(customerEntity);
     }
 
     @Override

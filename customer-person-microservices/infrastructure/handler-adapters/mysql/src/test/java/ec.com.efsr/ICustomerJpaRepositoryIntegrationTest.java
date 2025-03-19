@@ -2,6 +2,7 @@ package ec.com.efsr;
 
 import ec.com.efsr.entities.CustomerEntity;
 import ec.com.efsr.repository.ICustomerJpaRepository;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,13 +21,18 @@ public class ICustomerJpaRepositoryIntegrationTest {
     private ICustomerJpaRepository customerJpaRepository;
 
     @BeforeEach
+    @Transactional
     void setUp() {
         customerJpaRepository.deleteAll();
 
         CustomerEntity customerEntity = new CustomerEntity();
-        customerEntity.setIdCustomer("1235678");
-        customerEntity.setName("Carlos Delfin");
-        customerEntity.setState("active");
+        customerEntity.setIdentification("1103452367");
+        customerEntity.setPassword("password");
+        customerEntity.setState("true");
+        customerEntity.setName("John Doe");
+        customerEntity.setAddress("Loja");
+        customerEntity.setAge(50);
+        customerEntity.setPhone("0993425678");
         customerJpaRepository.save(customerEntity);
     }
 
@@ -34,11 +40,16 @@ public class ICustomerJpaRepositoryIntegrationTest {
     @DisplayName("shouldReturnCustomer_whenCustomerSearchById_thenCustomerExistInDatabase")
     void findById_CustomerExists_ReturnsCustomer() {
 
-        CustomerEntity result = customerJpaRepository.findById("123").orElse(null);
+        CustomerEntity result = customerJpaRepository.findByIdentification("1103452367");
 
         assertNotNull(result);
-        assertEquals("123", result.getIdCustomer());
+        assertEquals("1103452367", result.getIdentification());
+        assertEquals("password", result.getPassword());
+        assertEquals("true", result.getState());
         assertEquals("John Doe", result.getName());
+        assertEquals("Loja", result.getAddress());
+        assertEquals(50, result.getAge());
+        assertEquals("0993425678", result.getPhone());
     }
 
     @Test

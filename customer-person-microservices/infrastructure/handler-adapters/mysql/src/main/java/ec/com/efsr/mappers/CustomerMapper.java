@@ -5,6 +5,9 @@ import ec.com.efsr.models.Customer;
 
 public class CustomerMapper {
     public static Customer customerEntityToModel(CustomerEntity customerEntity) {
+        if(customerEntity == null){
+            return null;
+        }
         Customer customer = new Customer();
         customer.setIdCustomer(customerEntity.getIdCustomer());
         customer.setPassword(customerEntity.getPassword());
@@ -20,6 +23,9 @@ public class CustomerMapper {
     }
 
     public static CustomerEntity customerToCustomerEntity(Customer customer) {
+        if(customer == null){
+            return null;
+        }
         CustomerEntity customerEntity = new CustomerEntity();
         customerEntity.setIdCustomer(customer.getIdCustomer());
         customerEntity.setPassword(customer.getPassword());

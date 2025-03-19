@@ -1,0 +1,48 @@
+services:
+  customer-person-service:
+    image: customer-person-service  # Usa el nombre de tu imagen
+    ports:
+      - "8082:8082"  # Publica el puerto en el host (ajusta si es necesario)
+    depends_on:
+      - mysql  # Espera a que MySQL esté listo
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/project_account # Usa el nombre del servicio 'mysql'
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: admin
+    networks:
+      - app-network  # Agrega el servicio a la red
+    restart: always
+
+  account-movements-service:
+    image: account-movements-service  # Usa el nombre de tu imagen
+    ports:
+      - "8081:8081"  # Publica el puerto en el host (ajusta si es necesario)
+    depends_on:
+      - mysql  # Espera a que MySQL esté listo
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/project_account # Usa el nombre del servicio 'mysql'
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: admin
+    networks:
+      - app-network  # Agrega el servicio a la red
+    restart: always
+
+  mysql:
+    image: mysql:8.0  # Usa una imagen de MySQL (ajusta la versión si es necesario)
+    ports:
+      - "3306:3306" # Expone el puerto en el host (opcional, solo si necesitas acceder desde fuera de Docker)
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: project_account # Crea la base de datos
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persiste los datos de MySQL
+    networks:
+      - app-network # Agrega el servicio a la red
+    restart: always
+
+volumes:
+  mysql_data: # Define el volumen para persistir los datos de MySQL
+
+networks:
+  app-network: # Define la red para que los servicios se comuniquen
+    driver: bridge

@@ -1,3 +1,6 @@
+plugins {
+    id 'org.springframework.boot' version '3.4.3'
+}
 dependencies {
     implementation project(":usecase")
     implementation project(":model")
@@ -7,4 +10,8 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+}
+
+tasks.named('bootJar') {
+    enabled = false  // Deshabilita la tarea bootJar
 }

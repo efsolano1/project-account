@@ -1,9 +1,6 @@
 package ec.com.efsr;
 
-import ec.com.efsr.exceptions.CustomerNotFoundException;
-import ec.com.efsr.exceptions.CustomerSaveException;
-import ec.com.efsr.exceptions.CustomerUpdateException;
-import ec.com.efsr.exceptions.CustomersNotFoundException;
+import ec.com.efsr.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -16,6 +13,20 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class CustomExceptions {
+
+    @ExceptionHandler(CustomerExistIdentificationException.class)
+    public ResponseEntity<Map<String, String>> customerExistIdentificationExceptionHandler(CustomerExistIdentificationException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(CustomerIdentificationException.class)
+    public ResponseEntity<Map<String, String>> customerIdentificationExceptionHandler(CustomerIdentificationException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(CustomerUpdateException.class)
     public ResponseEntity<Map<String, String>> customerUpdateExceptionHandler(CustomerUpdateException ex) {

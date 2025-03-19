@@ -14,5 +14,7 @@ public interface CustomerRepositoryPort {
 
     Optional<Customer> updateCustomer(Customer customer);
 
+    Customer  findCustomerByIdentification(String id);
+
     void deleteCustomer(String id);
 }
