@@ -1,14 +1,14 @@
 # **MICROSERVICIOS APLICACION BANCARIA**
 Este repositorio contiene dos microservicios diseñados para la gestión de una aplicación bancaria, implementados con Spring Boot y utilizando tecnologías como MySQL, RabbitMQ y Docker.
 
-### Microservicios
+### **Microservicios**
 - **account-movements:** Gestiona las cuentas bancarias y los movimientos asociados.
 - **customer-person:** Administra la información de los clientes.
-- 
-### Comunicación entre Microservicios.
+
+### **Comunicación entre Microservicios.**
 La comunicación entre los microservicios se realiza de manera asíncrona mediante RabbitMQ, asegurando una integración eficiente y escalable.
 
-### Tecnologías utilizadas.
+### **Tecnologías utilizadas.**
 - **Spring Boot:** Para el desarrollo de los microservicios.
 - **MySQL:** Como base de datos relacional para la persistencia de datos.
 - **RabbitMQ:** Para la mensajería y comunicación entre los microservicios.
